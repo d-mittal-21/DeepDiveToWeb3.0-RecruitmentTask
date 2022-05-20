@@ -13,7 +13,7 @@ class loans
     int interest;
     string company;
     string mobile;
-    // int aadhar[12];
+    // int aadhar[12]; removed: seems overdo
 
     public:
     void homescreen();
@@ -78,6 +78,7 @@ void loans :: Admin()
     cout<<"\t\t\t Here is the List of Members of our Service    "<<endl;
     data.open("database.txt", ios::in);
     data>>type>>name>>company>>mobile>>income>>ammount>>interest;
+    //lists all the data from database file
     while(!data.eof())
     {
         cout<<" "<<type<<" "<<name<<" "<<company<<" "<<mobile<<" "<<income<<" "<<ammount<<" "<<interest<<endl;
@@ -110,7 +111,8 @@ void loans :: lenders()
     cout<<"\t\t\t Thank You for using our Services              "<<endl;
     cout<<"\t\t\t Deposit the money at our office within 2 days "<<endl;
     data.open("database.txt", ios::app|ios::out);
-    data<<" "<<type<<" "<<name<<" "<<company<<" "<<mobile<<" "<<income<<" +"<<ammount<<" +"<<interest<<endl;
+    data<<" "<<type<<" "<<name<<" "<<company<<" "<<mobile<<" "<<income<<" +"<<ammount<<" +"<<interest<<endl; 
+    //+ denotes they have lended
     data.close();
 }
 void loans :: borrowers()
@@ -140,6 +142,7 @@ void loans :: borrowers()
         cout<<"\t\t\t You can collect your money from our office tomorrow"<<endl;
         data.open("database.txt", ios::app|ios::out);
         data<<" "<<type<<" "<<name<<" "<<company<<" "<<mobile<<" "<<income<<" -"<<ammount<<" -"<<interest<<endl;
+        //- denates they have borrowed
         data.close();
     }
     else
