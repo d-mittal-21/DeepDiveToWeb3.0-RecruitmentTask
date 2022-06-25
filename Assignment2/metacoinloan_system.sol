@@ -78,6 +78,7 @@ contract Loan is MetaCoin {
             p= add(p, mulDiv(p, r, 1e18));
             t--;
         }
+	return p;
     }
     
     function reqLoan(uint256 principle, uint rate, uint time) public returns(bool correct) {
